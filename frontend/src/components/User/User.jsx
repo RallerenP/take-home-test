@@ -26,39 +26,47 @@ function User({ user, onDeleteUser }) {
   }
 
   return (
-    <form className="user" onSubmit={onSubmit}>
-      <p>
-        <span className="label">Firstname: </span>
-        {edit ? 
-          <input defaultValue={user.firstname} placeholder="Firstname" name="firstname" /> :
-          user.firstname
+    <form className="user bg-white rounded my-4 justify-between text-xl" onSubmit={onSubmit}>
+      <div className="flex flex-col lg:flex-row justify-between gap-4 px-4 py-2 break-all">
+        <div className="flex flex-col my-2 min-w-[200px] ">
+          <span className="label text-gray-600 text-lg">Firstname</span>
+          {edit ? 
+            <input className="user__input" defaultValue={user.firstname} placeholder="Firstname" name="firstname" /> :
+            user.firstname
+          }
+        </div>
+        
+        <div className="flex flex-col my-2 min-w-[200px]">
+          <span className="label text-gray-600 text-lg">Lastname</span>
+          {edit ?
+            <input className="user__input" defaultValue={user.lastname} placeholder="Lastname" name="lastname" /> :
+            user.lastname
+          }
+        </div>
+        <div className="flex flex-col my-2 min-w-[200px]">
+          <span className="label text-gray-600 text-lg">Country</span>
+          {edit ?
+            <input className="user__input" defaultValue={user.country} placeholder="Country" name="country" /> :
+            user.country
+          }
+        </div>
+      </div>
+      <div className="bg-gray-200 px-4 py-2 flex justify-center">
+        { edit ?
+          <>
+            <button className="user__button bg-emerald-500" type="submit">Confirm</button>
+            <button className="user__button bg-orange-500" onClick={onToggleEdit}>Cancel</button>
+          </>
+          :
+          <>
+            <button className="user__button bg-emerald-500" onClick={onToggleEdit}>Edit</button>
+            <button className="user__button bg-red-500" onClick={onDelete}>Delete</button>
+          </>
+          
         }
-      </p>
-      <p>
-        <span className="label">Lastname: </span>
-        {edit ?
-          <input defaultValue={user.lastname} placeholder="Lastname" name="lastname" /> :
-          user.lastname
-        }
-      </p>
-      <p>
-        <span className="label">Country: </span>
-        {edit ?
-          <input defaultValue={user.country} placeholder="Country" name="country" /> :
-          user.country
-        }
-      </p>
 
-      { edit ?
-        <>
-          <button type="submit">Confirm</button>
-          <button onClick={onToggleEdit}>Cancel</button>
-        </>
-        :
-        <button onClick={onToggleEdit}>Edit</button>
-      }
-
-      <button onClick={onDelete}>Delete</button>
+        
+      </div>
     </form>
   );
 }

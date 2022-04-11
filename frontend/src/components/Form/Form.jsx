@@ -21,17 +21,24 @@ function Form(props) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="form">
-      <label htmlFor="name">Firstname</label>
-      <input type="text" id="firstname" />
+    <form onSubmit={onSubmit} className="bg-white shadow p-4 rounded">
+      <h1 className="text-3xl font-semibold">User form</h1>
 
-      <label htmlFor="name">Lastname</label>
-      <input type="text" id="lastname" />
-
-      <label htmlFor="name">Country</label>
-      <input type="text" id="country" />
-
-      <button>Submit form</button>
+      <div className="w-full flex flex-col py-2">
+        <label htmlFor="name" className="text-lg my-1">Firstname</label>
+        <input placeholder="Enter firstname here..." className="border rounded p-1 text-xl" type="text" id="firstname" />
+      </div>
+      
+      <div className="w-full flex flex-col py-2">
+        <label htmlFor="lastname" className="text-lg my-1">Lastname</label>
+        <input placeholder="Enter lastname here..." className="border rounded p-1 text-xl" type="text" id="lastname" />  
+      </div>
+      
+      <div className="w-full flex flex-col py-2">
+        <label htmlFor="country" className="text-lg my-1">Country</label>
+        <input placeholder="Enter country here..." className="border rounded p-1 text-xl" type="text" id="country" />
+      </div>
+      <button class="w-full bg-blue-800 p-2 text-white font-bold rounded-full mt-4">Submit form</button>
     </form>
   );
 }

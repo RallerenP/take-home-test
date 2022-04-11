@@ -1,13 +1,7 @@
-.user {
-  padding: 0.5rem;
-  border: 1px #ccc solid;
-  margin: 0.5rem 0;
+.user__button {
+  @apply hover:brightness-110 rounded-full p-2 mx-2 text-white w-[120px] 
 }
 
-.user span.label {
-  font-weight: 444;
-  color: #000;
-}
-.user p {
-  color: #333;
+.user__input {
+  @apply border rounded p-2;
 }

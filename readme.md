@@ -33,9 +33,9 @@ We have created a bit of functionality so you have something to work from. It is
 
 - [x] Make delete work for individual users
 
-- [ ] When adding a new user, make sure the list updates
+- [x] When adding a new user, make sure the list updates
 
-- [ ] Style the page using the mockups
+- [x] Style the page using the mockups
 
 # ✅ What to do when you are done
 
