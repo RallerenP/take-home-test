@@ -29,8 +29,8 @@ function User({ user, onDeleteUser, workplaces }) {
 
   return (
     <form className="user bg-white rounded my-4 justify-between text-xl" onSubmit={onSubmit}>
-      <div className="flex flex-col lg:flex-row justify-between gap-4 px-4 py-2 break-all">
-        <div className="flex flex-col my-2 min-w-[200px] ">
+      <div className="flex flex-col lg:flex-row justify-evenly gap-4 px-4 py-2 break-all">
+        <div className="flex flex-col my-2 ">
           <span className="label text-gray-600 text-lg">Firstname</span>
           {edit ? 
             <input className="user__input" defaultValue={user.firstname} placeholder="Firstname" name="firstname" /> :
@@ -38,21 +38,21 @@ function User({ user, onDeleteUser, workplaces }) {
           }
         </div>
         
-        <div className="flex flex-col my-2 min-w-[200px]">
+        <div className="flex flex-col my-2">
           <span className="label text-gray-600 text-lg">Lastname</span>
           {edit ?
             <input className="user__input" defaultValue={user.lastname} placeholder="Lastname" name="lastname" /> :
             user.lastname
           }
         </div>
-        <div className="flex flex-col my-2 min-w-[200px]">
+        <div className="flex flex-col my-2">
           <span className="label text-gray-600 text-lg">Country</span>
           {edit ?
             <input className="user__input" defaultValue={user.country} placeholder="Country" name="country" /> :
             user.country
           }
         </div>
-        <div className="flex flex-col my-2 min-w-[200px]">
+        <div className="flex flex-col my-2">
           <span className="label text-gray-600 text-lg">Workplace</span>
           {edit ?
             <select className="user__input" defaultValue={user.workplace_id} name="workplace">
