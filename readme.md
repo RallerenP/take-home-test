@@ -27,7 +27,7 @@ We have created a bit of functionality so you have something to work from. It is
 
 - [x] The database comes with a list of users. Replace the dummy users in app.jsx with the actual users from the database
 
-- [ ] Make the form work, so users can be added with the form
+- [x] Make the form work, so users can be added with the form
 
 - [ ] Make edit work for individual users (you can reuse the same form component in the top if you want)
 

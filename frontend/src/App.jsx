@@ -12,10 +12,14 @@ function App() {
     getAllUsers().then((users) => setUsers(users));
   }, [])
 
+  function onAddUser() {
+    getAllUsers().then((users) => setUsers(users));
+  }
+
   return (
     <div className="app">
       {/* Form */}
-      <Form />
+      <Form onAddUser={onAddUser}/>
 
       {/* Users */}
       {users !== null && users.map((user) => (
