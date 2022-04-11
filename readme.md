@@ -45,13 +45,13 @@ We will talk about your solution in the next interview so you have a chance to t
 
 # 💡 Ideas for additional tasks
 
-- Implement pagination either through buttons or on scroll lazy load
-- Create another table that has a relation to the users-table this could be skills, hobbies, friends or something else and include this data in the app (CRUD)
-- Implement some kind of authorisation-strategy for the api (basic auth, JWT or something else entirely)
-- Add animations
-- Add filters and/or sorting of the users
-- Implement redux
-- Organize the api
-- Organize the app
-- Handle loading and error states (you can use some artificial delays in the api or use network throttling in chrome)
-- Make users searchable, either through filters in the frontend or through a database query
+- [ ] Implement pagination either through buttons or on scroll lazy load
+- [ ] Create another table that has a relation to the users-table this could be skills, hobbies, friends or something else and include this data in the app (CRUD)
+- [ ] Implement some kind of authorisation-strategy for the api (basic auth, JWT or something else entirely)
+- [ ] Add animations
+- [ ] Add filters and/or sorting of the users
+- [ ] Implement redux
+- [ ] Organize the api
+- [ ] Organize the app
+- [ ] Handle loading and error states (you can use some artificial delays in the api or use network throttling in chrome)
+- [ ] Make users searchable, either through filters in the frontend or through a database query

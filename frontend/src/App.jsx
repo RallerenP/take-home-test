@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { getAllUsers } from "./api/users";
+import { getAllWorkplaces } from "./api/workplaces";
 import "./App.css";
 import Form from "./components/Form/Form";
 import User from "./components/User/User";
 
 function App() {
   const [users, setUsers] = useState(null);
+  const [workplaces, setWorkplaces] = useState(null);
 
   useEffect(() => {
     getAllUsers().then((users) => setUsers(users));
+    getAllWorkplaces().then((workplaces) => setWorkplaces(workplaces));
   }, [])
 
   const onAddUser = () => {
@@ -22,13 +25,19 @@ function App() {
 
   return (
     <div className="app">
-      {/* Form */}
-      <Form onAddUser={onAddUser}/>
+      
+      {workplaces && (
+        <>
+          {/* Form */}
+          <Form onAddUser={onAddUser} workplaces={workplaces}/>
 
-      {/* Users */}
-      {users !== null && users.map((user) => (
-        <User key={user.id} user={user} onDeleteUser={onDeleteUser} />
-      ))}
+          {/* Users */}
+          {users !== null && users.map((user) => (
+            <User key={user.id} user={user} onDeleteUser={onDeleteUser} workplaces={workplaces} />
+          ))}  
+        </>
+      )}
+      
     </div>
   );
 }

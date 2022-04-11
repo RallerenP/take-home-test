@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:4000';
+import { httpGet, httpPost, httpPut, httpDelete, API_URL } from './http.js';
 
 export const getAllUsers = () => {
   return httpGet(`${API_URL}/users`);
@@ -16,32 +16,3 @@ export const deleteUser = (id) => {
   return httpDelete(`${API_URL}/users/${id}`);
 }
 
-function httpGet(url) {
-  return fetch(url).then(res => res.json());
-}
-
-function httpPost(url, data) {
-  return fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).then(res => res.json());
-}
-
-function httpPut(url, data) {
-  return fetch(url, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).then(res => res.json());
-}
-
-function httpDelete(url) {
-  return fetch(url, {
-    method: 'DELETE'
-  }).then(res => res.json());
-}

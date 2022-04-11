@@ -1,10 +1,11 @@
 import "./User.css";
 import { useState } from "react";
 import { editUser, deleteUser } from "../../api/users";
+import { useEffect } from "react";
 
-function User({ user, onDeleteUser }) {
+function User({ user, onDeleteUser, workplaces }) {
   const [ edit, setEdit ] = useState(false);
-  
+    
   const onToggleEdit = (e) => {
     e.preventDefault();
     setEdit(!edit);
@@ -16,6 +17,7 @@ function User({ user, onDeleteUser }) {
     user.firstname = e.target.firstname.value;
     user.lastname = e.target.lastname.value;
     user.country = e.target.country.value;
+    user.workplace_id = Number(e.target.workplace.value);
 
     editUser(user).then(() => setEdit(false));
   }
@@ -48,6 +50,18 @@ function User({ user, onDeleteUser }) {
           {edit ?
             <input className="user__input" defaultValue={user.country} placeholder="Country" name="country" /> :
             user.country
+          }
+        </div>
+        <div className="flex flex-col my-2 min-w-[200px]">
+          <span className="label text-gray-600 text-lg">Workplace</span>
+          {edit ?
+            <select className="user__input" defaultValue={user.workplace_id} name="workplace">
+              {workplaces.map((workplace) => (
+                <option key={workplace.id} value={workplace.id}>{workplace.name}</option>
+              ))}
+            </select> 
+            :
+            workplaces.find((workplace) => workplace.id === user.workplace_id).name
           }
         </div>
       </div>
