@@ -5,11 +5,11 @@ function User({ user }) {
     <div className="user">
       <p>
         <span className="label">Firstname: </span>
-        {user.firstName}
+        {user.firstname}
       </p>
       <p>
         <span className="label">Lastname: </span>
-        {user.lastName}
+        {user.lastname}
       </p>
       <p>
         <span className="label">Country: </span>
