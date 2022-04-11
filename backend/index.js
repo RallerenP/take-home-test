@@ -40,6 +40,20 @@ app.post("/users", async (req, res) => {
   return res.json(result)
 })
 
+app.put("/users", async (req, res) => {
+  const db = await database();
+
+  const { id, firstname, lastname, country } = req.body;
+
+  // Update user in database
+  const result = await db.run(
+    `UPDATE users SET firstname = ?, lastname = ?, country = ? WHERE id = ?`,
+    [firstname, lastname, country, id]
+  );
+
+  return res.json(result);
+})
+
 app.listen(PORT, (err) => {
   if (err) console.log(err);
   console.log(`Backend started - listening on port ${PORT}`);

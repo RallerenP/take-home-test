@@ -1,24 +1,60 @@
 import "./User.css";
+import { useState } from "react";
+import { editUser } from "../../api/users";
 
 function User({ user }) {
+  const [ edit, setEdit ] = useState(false);
+  
+  const onToggleEdit = (e) => {
+    e.preventDefault();
+    setEdit(!edit);
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    
+    user.firstname = e.target.firstname.value;
+    user.lastname = e.target.lastname.value;
+    user.country = e.target.country.value;
+
+    editUser(user).then(() => setEdit(false));
+  }
+
   return (
-    <div className="user">
+    <form className="user" onSubmit={onSubmit}>
       <p>
         <span className="label">Firstname: </span>
-        {user.firstname}
+        {edit ? 
+          <input defaultValue={user.firstname} placeholder="Firstname" name="firstname" /> :
+          user.firstname
+        }
       </p>
       <p>
         <span className="label">Lastname: </span>
-        {user.lastname}
+        {edit ?
+          <input defaultValue={user.lastname} placeholder="Lastname" name="lastname" /> :
+          user.lastname
+        }
       </p>
       <p>
         <span className="label">Country: </span>
-        {user.country}
+        {edit ?
+          <input defaultValue={user.country} placeholder="Country" name="country" /> :
+          user.country
+        }
       </p>
 
-      <button>Edit</button>
+      { edit ?
+        <>
+          <button>Confirm</button>
+          <button onClick={onToggleEdit}>Cancel</button>
+        </>
+        :
+        <button onClick={onToggleEdit}>Edit</button>
+      }
+
       <button>Delete</button>
-    </div>
+    </form>
   );
 }
 

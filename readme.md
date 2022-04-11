@@ -29,7 +29,7 @@ We have created a bit of functionality so you have something to work from. It is
 
 - [x] Make the form work, so users can be added with the form
 
-- [ ] Make edit work for individual users (you can reuse the same form component in the top if you want)
+- [x] Make edit work for individual users (you can reuse the same form component in the top if you want)
 
 - [ ] Make delete work for individual users
 
