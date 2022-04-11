@@ -55,6 +55,20 @@ app.put("/users/:id", async (req, res) => {
   return res.json(result);
 })
 
+app.delete("/users/:id", async (req, res) => {
+  const db = await database();
+
+  const id = req.params.id;
+
+  // Delete user from database
+  const result = await db.run(
+    `DELETE FROM users WHERE id = ?`,
+    [id]
+  );
+
+  return res.json(result);
+});
+
 app.listen(PORT, (err) => {
   if (err) console.log(err);
   console.log(`Backend started - listening on port ${PORT}`);

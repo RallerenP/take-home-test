@@ -12,7 +12,11 @@ function App() {
     getAllUsers().then((users) => setUsers(users));
   }, [])
 
-  function onAddUser() {
+  const onAddUser = () => {
+    getAllUsers().then((users) => setUsers(users));
+  }
+
+  const onDeleteUser = () => {
     getAllUsers().then((users) => setUsers(users));
   }
 
@@ -23,7 +27,7 @@ function App() {
 
       {/* Users */}
       {users !== null && users.map((user) => (
-        <User key={user.id} user={user} />
+        <User key={user.id} user={user} onDeleteUser={onDeleteUser} />
       ))}
     </div>
   );

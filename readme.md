@@ -31,7 +31,7 @@ We have created a bit of functionality so you have something to work from. It is
 
 - [x] Make edit work for individual users (you can reuse the same form component in the top if you want)
 
-- [ ] Make delete work for individual users
+- [x] Make delete work for individual users
 
 - [ ] When adding a new user, make sure the list updates
 

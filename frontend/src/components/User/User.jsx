@@ -1,8 +1,8 @@
 import "./User.css";
 import { useState } from "react";
-import { editUser } from "../../api/users";
+import { editUser, deleteUser } from "../../api/users";
 
-function User({ user }) {
+function User({ user, onDeleteUser }) {
   const [ edit, setEdit ] = useState(false);
   
   const onToggleEdit = (e) => {
@@ -18,6 +18,11 @@ function User({ user }) {
     user.country = e.target.country.value;
 
     editUser(user).then(() => setEdit(false));
+  }
+
+  const onDelete = (e) => {
+    e.preventDefault();
+    deleteUser(user.id).then(() => onDeleteUser());
   }
 
   return (
@@ -46,14 +51,14 @@ function User({ user }) {
 
       { edit ?
         <>
-          <button>Confirm</button>
+          <button type="submit">Confirm</button>
           <button onClick={onToggleEdit}>Cancel</button>
         </>
         :
         <button onClick={onToggleEdit}>Edit</button>
       }
 
-      <button>Delete</button>
+      <button onClick={onDelete}>Delete</button>
     </form>
   );
 }

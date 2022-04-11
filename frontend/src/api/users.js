@@ -1,22 +1,26 @@
 const API_URL = 'http://localhost:4000';
 
 export const getAllUsers = () => {
-  return get(`${API_URL}/users`);
+  return httpGet(`${API_URL}/users`);
 }
 
 export const createUser = (user) => {
-  return post(`${API_URL}/users`, user);
+  return httpPost(`${API_URL}/users`, user);
 }
 
 export const editUser = (user) => {
-  return put(`${API_URL}/users/${user.id}`, user);
+  return httpPut(`${API_URL}/users/${user.id}`, user);
 }
 
-function get(url) {
+export const deleteUser = (id) => {
+  return httpDelete(`${API_URL}/users/${id}`);
+}
+
+function httpGet(url) {
   return fetch(url).then(res => res.json());
 }
 
-function post(url, data) {
+function httpPost(url, data) {
   return fetch(url, {
     method: 'POST',
     headers: {
@@ -26,12 +30,18 @@ function post(url, data) {
   }).then(res => res.json());
 }
 
-function put(url, data) {
+function httpPut(url, data) {
   return fetch(url, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
+  }).then(res => res.json());
+}
+
+function httpDelete(url) {
+  return fetch(url, {
+    method: 'DELETE'
   }).then(res => res.json());
 }
