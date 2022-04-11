@@ -9,7 +9,7 @@ export const createUser = (user) => {
 }
 
 export const editUser = (user) => {
-  return put(`${API_URL}/users`, user);
+  return put(`${API_URL}/users/${user.id}`, user);
 }
 
 function get(url) {

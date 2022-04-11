@@ -40,10 +40,11 @@ app.post("/users", async (req, res) => {
   return res.json(result)
 })
 
-app.put("/users", async (req, res) => {
+app.put("/users/:id", async (req, res) => {
   const db = await database();
 
-  const { id, firstname, lastname, country } = req.body;
+  const { firstname, lastname, country } = req.body;
+  const id = req.params.id;
 
   // Update user in database
   const result = await db.run(
